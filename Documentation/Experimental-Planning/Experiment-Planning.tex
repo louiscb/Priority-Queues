@@ -1,10 +1,19 @@
 \documentclass[12pt]{article}
+
 \usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{float} % here for H placement parameter
+\usepackage{longtable}
+
+\makeatletter
+\setlength{\@fptop}{0pt}
+\makeatother
+
 
 \title{Experimental Method - Planning}
 \author{
 \\
-  Louis, Cameron Booth\\
+  Louis Cameron Booth\\
   \texttt{louiscb@kth.se}
   \and
   \\
@@ -19,86 +28,78 @@
 \maketitle
 
 \begin{center}
-\includegraphics[width=4cm]{logo.png}
+\includegraphics[width=3cm]{logo.png}
 \end{center}
 
 \pagebreak
 \tableofcontents
 \newpage
-\section{Identify result and impact goals/objectives}
+\section{Impact Goals and Objectives}
 
-The goal of and the motivation behind the experiment is to provide a detailed image of the benefits and shortcomings of two different implementations of a priority queue. This will be considered based on the context of which of two use-cases they are targeting. The first of the two implementations being evaluated is based on the data structure of a singly linked list, while the second is based on heap. 
-Each of these data structures will be used to implement priority queues for the following use-cases (see Figure 1): 
+ The goal of and the motivation behind the experiment is to provide a detailed image of the benefits and shortcomings of two different implementations of the priority queue. This will be considered based on the which of two use-cases they are targeting. The first of the two implementations being evaluated is based on the data structure of a singly linked list, while the second is based on the heap. 
+Each of these data structures will be used to make priority queues for the following use-cases (see Figure 1): 
 
 \begin{itemize}
    \item Future pending event sets in event-driven simulations: what events this will be developed for is abstract and depends on the developer, as it can be any case where scheduling of events based on priority is the aim. The priority here is represented using timestamp doubles, where the one with the nearest stamp should be dequeued first.
    \item Ready queue for processes and threads in operating systems:
-This refers to the scheduling of processes where the CPU needs to decide what process it should allocate resources to. The priority here is represented using a discrete set of integers where the one with the highest value should be dequeued first. 
-\end{itemize}
+ this refers to the scheduling of processes where the CPU needs to decide for which one it should allocate resources. The priority here is represented using a discrete set of integers where the one with the highest value should be dequeued first. \end{itemize}
 
 The value behind priority queues and general scheduling concepts for both, or in fact any use case is well described by the following quote from 3 Easy Pieces by Remzi and Andrea Arpaci-Dusseau:
-
-“The origins of scheduling, in fact, predate computer systems; early approaches were taken from the field of operations management and applied to computers. This reality should be no surprise: assembly lines and many other human endeavours also require scheduling, and many of the same concerns exist therein, including a laser-like desire for efficiency” [6]. 
 \\
+\\
+ \textit{“The origins of scheduling, in fact, predate computer systems; early approaches were taken from the field of operations management and applied to computers. This reality should be no surprise: assembly lines and many other human endeavours also require scheduling, and many of the same concerns exist therein, including a laser-like desire for efficiency” [6].} \\
 
 Hence, this report and the results of these experiments can be used by someone who wished to capture the value described above by building an application that is relevant to the context of the experiment. That is, if they wish to use a priority queue in their application and they need to decide on an implementation based on the context, they can refer to such experiments or carry out a variation of their own. 
 
 This will hopefully also benefit the users of the developed application as it gives them the best possible implementation for the intended use case. The best implementation should provide the best access time for the elements in the system, and thus a smoother experience for a user of the application.
 
-Hence a deeper look into the experiments and the results at the given specific contexts will help understand and make the decisions on the implementations when they are relevant. 
+ A deeper look into this experiment and the results in specific contexts will help us understand and make decisions on when the implementations are relevant. 
 
-
-\section{Simple preliminary study}
+\section{Preliminary study}
 
 We can analyse the different queues based on the theory and the expected performance of the data structures. We can also consider what factors and variables will affect this performance and predict their effects. In order to do this we need to take a look at what happens in each use case. 
+
+ The specifications and testing choices for the event-driven simulations implementation are the following: 
 
 \begin{itemize}
    \item The priorities are represented using timestamps that function as explained previously. 
    \item After every dequeue of an element 0-N new elements are generated using the dequeued element’s timestamp added to a randomly generated increment() value. For simplicity, we will generate 2 events for each dequeue. 
    \item The simulation will end when a limit of events (elements) is reached in the queue (L).
-   \item Should two events have identical timestamps we use FIFO and dequeue the one that was added first. 
+   \item If two events have identical timestamps we should use FIFO and dequeue the one that was added first. 
 \end{itemize}
 
 As a result we will need to consider this entire process every time we access the queue in our study in order to find out how effective the data structures are for this specific situation. We need to judge the two data structures for the operation of removing() the highest priority element and inserting() 2 with a random priority. 
 \\
 \\
-The specifications and choices we made for the use case of a ready queue are following: 
+The specifications and choices we made for the use case of a ready queue are the following: 
 
 \begin{itemize}
    \item The priority is represented using integer values in a predefined discrete set. 
-   \item The testing will be done by making N number of enqueues followed by the same number of dequeues. Chosen based on Up/Down model proposed by Rönngren [1]. 
+   \item The testing will be done by making N number of enqueues followed by the same number of dequeues. Chosen based on Up/Down model proposed by Rönngren  \cite{robert}. 
 \end{itemize}
 
-Hence, we will need to keep these in consideration when testing and comparing the two implementations.
-\\
-\\
-Variables - Variables that we need to control and alter or keep constant in order to fairly evaluate the performance of the two different implementations:
-Independent Variable- Variables we choose and alter to see the effect on the dependent variables and the performance. 
+We will also need to keep these in consideration when testing and comparing the two implementations.
 
+\subsection{Variables} 
+\textbf{Independent Variables}  - \textit{Variables we choose and alter to see the effect on the dependent variables and the performance.}
+\begin{itemize}
+ \item The limit for queue size in event-driven simulations (L). Different numbers should be tested to see what implementation is good for what size. Specified by us in the testing program.
+\item The number of enqueues followed by the same number of Deques (N). Similarly multiple values should be used with both implementations. Specified by us in the testing program.
+\end{itemize}
+\textbf{Dependent Variables} - \textit{Variables that we Measure in order to evaluate performance of the implementations.}
+\begin{itemize}
+\item Execution Time. Used to determine performance of both data structure and measured using the clock() function in C. The implementation that provides the lowest access time and returns the value in the lowest execution time would prove superior.
+\end{itemize}
+\textbf{Control Variables}- \textit{Variables that we need to keep constant throughout the experiment to collect fair data.}
+\begin{itemize}
+\item The hardware we are using to carry out testing. Different hardware and processing speed can lead to different execution time results. The specifications of the hardware used can be seen in section 5 of this report. 
+\end{itemize}
+The experiment over all can be described by \textit{Figure 1}, where we will implement four versions of the priority queue based on the two data structures. We will then test the implementations based on the use case. This will be done by controlling and varying the relevant variables in the experiment when testing for the context. 
+end
+\section{Methodology}
 
-The limit for queue size in event-driven simulations (L). Different numbers should be tested to see what implementation is good for what size. Specified by us in the testing program.
-
-
-The number of enqueues followed by the same number of Deques (N). Similarly multiple values should be used with both implementations. Specified by us in the testing program.
-
-
-Dependent - Variables that we Measure in order to evaluate performance of the implementations. 
-
-
-Execution Time. Used to determine performance of both data structure and measured using the clock() function in C. The implementation that provides the lowest access time and returns the value with the lowest execution time would prove superior.
-
-
-Control - Variables that we need to keep constant throughout the experiment to collect fair data.
-
-
-The hardware we are using to carry out testing. Different hardware and processing speed can lead to different execution time results. The specifications of the hardware used can be seen in section 5 of this report. 
-
-The experiment over all can be described by the figure 1, where we will implement two versions of the priority queue based on the two data structures. We will then test the implementations based on the use case. This will be done by controlling and varying the relevant variables in the experiment when testing for the context. 
-
-\section{Identify which types of methods the study will be based on}
-
-The study will mostly be using quantitative and inductive methods as we will be carrying out experiments and observe the results to draw conclusions. The observed results are those of numerical value (Execution Time). This is also true for the independent variables of the experiment, as the performance is expected to be affected by altering the numeric value of these variables, hence the quantitative aspect of the experimentation. Some qualitative input will also be included if we come across it throughout the process. An example could be an input on the ease of implementation of the priority queues, using the two data structures in the different scenarios, keeping in mind any potential tradeoff it might have on performance.
-
+ The study will mostly be using quantitative and inductive methods as we will be carrying out experiments and observing the results to draw conclusions. The observed results are those of numerical value (Execution Time). This is also true for the independent variables of the experiment, as the performance is expected to be affected by altering the numeric value of these variables, which brings up the quantitative aspect of the experimentation. Some qualitative input will also be included if we come across it throughout the process. An example could be an input on the ease of implementation of the priority queues, using the two data structures in the different scenarios. Keeping in mind any potential tradeoff it might have on performance. 
+ 
 \section{Experiment plan}
 
 We will make two sets of experiments where we compare the priority queues in different contexts. We will measure the behaviour of single linked lists and heap based priority queues using random priorities with a high entropy. The reason we will use random priorities is to provide an accurate environment for experimentation. According to the department of Statistics \& Data Science of Yale “it is generally extremely difficult for experimenters to eliminate bias using only their expert judgment, therefore the use of randomisation in experiments is common practice” [2]. 
@@ -126,6 +127,17 @@ It is also important to note that the clock() operation itself takes a certain a
 With this measurement technique we will obtain average and worst case times for our algorithms. We will determine the average time complexity of each implementation by calculating the mean of the time of the recorded operations. We will determine the worst case by taking the highest value of time of each implementation.
 
 In table 1 we have the big O time complexities of our algorithms and will be using these as a point of reference throughout the experiment.    
+
+\begin{table}[h]
+\caption{ Time Complexities of Algorithms [3]}
+\begin{tabular}{|l|l|l|ll}
+\cline{1-3}
+\textbf{Algorithm}                & \textbf{Average Case} & \textbf{Worst Case} &  &  \\ \cline{1-3}Heap Based - Event                & O(log(n))    & O(log(n))  &  &  \\ \cline{1-3}
+Heap Based - Ready Queues         & O(log(n))    & O(log(n))  &  &  \\ \cline{1-3}
+Singly Linked List - Event        & O(n)         & O(n)       &  &  \\ \cline{1-3}
+Singly Linked List - Ready Queues & O(n)         & O(n)       &  &  \\ \cline{1-3}
+\end{tabular}
+\end{table}
 
 \subsection{Random generation}
 
@@ -172,7 +184,68 @@ The goals \& experiments are complete once we have gathered data of an acceptabl
 
 \section{Requirements table}
 
-\section{References}
+\begin{table}[H]
+\caption{Table of requirements for project}
+\label{BT2}
+\footnotesize
+% \resizebox{\textwidth}{!}{%
+\begin{tabular}{|p{1cm}*{4}{|p{\dimexpr(\textwidth-1cm)/4\relax}}|}%{|l|l|l|l|l|}
+\hline
+\textbf{Req. \#} & \textbf{Type of Requirement} & \textbf{Designation Source} & \textbf{Description of the requirement} & \textbf{Completed / Not met / Partially met} \\ \hline
+1 & Must Have & Implement Priority Queue based on Single-Linked List Event Driven & Implement a priority queue for Event Driven use cases, in C, using the single linked list data structure. & NC \\ \hline
+2 & Must Have & Implement Priority Queue based on Single-Linked List Ready Queue & Implement a priority queue to fit the criteria of a ready queue in C, using the single linked list data structure. & NC \\ \hline
+3 & Must Have & Implement Priority Queue based on Heap Event Driven & Implement a priority queue for Event Driven use cases, in C, using the heap data structure. & NC \\ \hline
+4 & Must Have & Implement Priority Queue based on Heap Ready Queue & Implement a priority queue to fit the criteria of a ready queue in C, using the heap data structure. & NC \\ \hline
+5 & Should Have & Create unit testing for our implementation of our programs & Use cUnit to create unit testing for the many functions in all our code for our programs. & NC \\ \hline
+6 & Should Have & Implement automated queue testing program & Create a bash program that automates the testing process of our queues. & NC \\ \hline
+
+\end{tabular}%
+% }
+\end{table}
+
+\begin{table}[H]
+\label{BT2}
+\footnotesize
+% \resizebox{\textwidth}{!}{%
+\begin{tabular}{|p{1cm}*{4}{|p{\dimexpr(\textwidth-1cm)/4\relax}}|}%{|l|l|l|l|l|}
+\hline
+
+\textbf{Req. \#} & \textbf{Type of Requirement} & \textbf{Designation Source} & \textbf{Description of the requirement} & \textbf{Completed / Not met / Partially met} \\ \hline
+7 & Must Have & Evaluate best, normal, worst case performances for Priority Queue based on Single-Linked List Event Driven & Do an analytical and execution evaluation of the best case, worst case and expected case for the single-linked list priority que. For the Event Driven Simulation use case. & NC \\ \hline
+8 & Must Have & Evaluate best, normal, worse case performances for Priority Queue based on Single-Linked List Ready Queue & Do an analytical and execution evaluation of the best case, worst case and expected case for the single-linked list priority que. For the Event Ready Queue use case. & NC \\ \hline
+9 & Must Have & Evaluate normal, worst case performances for Priority Queue based on Heap Event Driven & Do an analytical and execution evaluation of the best case, worst case and expected case for the heap priority queue. For the Event Driven Simulation use case. & NC \\ \hline
+10 & Must Have & Evaluate normal, worst case performances for Priority Queue based on Heap Ready Queue & Do an analytical and execution evaluation of the best case, worst case and expected case for the single-linked list priority que. For the Event Ready Queue use case. & NC \\ \hline
+11 & Must Have & Make Code Available on LINUX servers & Do an analytical and execution evaluation of the best case, worst case and expected case for the single-linked list priority queue. & NC \\ \hline
+\end{tabular}%
+% }
+\end{table}
+
+\begin{thebibliography}{999}
+\bibitem{robert}
+	\emph{Robert Rönngren and Rassul Ayani},
+	A Comparative Study of Parallel and Sequential Priority Queue Algorithms, Royal Institute of Technology
+\bibitem{yale}
+	\emph{Department of Stats \& Data Science},
+	Experimentation, Yale University
+\bibitem{algorithms}
+	\emph{Robert Sedgewick},
+	Algorithms \& Data Structures, Princeton University
+\bibitem{carnegie}
+	\emph{Software Engineering Institute},
+	Confluence, Carnegie Mellon University
+\bibitem{openbsd}
+	\emph{OpenBSD},
+	arc4random Library Functions Manual
+\bibitem{operating}
+	\emph{Remzi H. Arpaci-Dusseau and Andrea C. Arpaci-Dusseau },
+	Operating Systems: Three Easy Pieces
+\bibitem{brown}
+	\emph{R. Brown},
+Calendar queues: a fast priority queue implementation for the simulation event set problem, Communications of the ACM
+\bibitem{cunit}
+	\emph{CUnit Progammers Guide},
+Introduction to Unit Testing with CUnit
+\end{thebibliography}
 
 \end{document}
 This is never printed

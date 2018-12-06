@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.11.14)  6 DEC 2018 12:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.11.14)  6 DEC 2018 16:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -48,35 +48,85 @@ File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 \Gin@req@height=\dimen103
 \Gin@req@width=\dimen104
 )
-(./Experiment-Planning.aux)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 2016/02/03 v2.11b `tabularx' package (DPC)
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/tools/array.sty
+Package: array 2018/04/07 v2.4g Tabular extension package (FMi)
+\col@sep=\dimen105
+\ar@mcellbox=\box26
+\extrarowheight=\dimen106
+\NC@list=\toks15
+\extratabsurround=\skip43
+\backup@length=\skip44
+\ar@cellbox=\box27
+)
+\TX@col@width=\dimen107
+\TX@old@table=\dimen108
+\TX@old@col=\dimen109
+\TX@target=\dimen110
+\TX@delta=\dimen111
+\TX@cols=\count88
+\TX@ftn=\toks16
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count89
+\float@exts=\toks17
+\float@box=\box28
+\@float@everytoks=\toks18
+\@floatcapt=\box29
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
+\LTleft=\skip45
+\LTright=\skip46
+\LTpre=\skip47
+\LTpost=\skip48
+\LTchunksize=\count90
+\LTcapwidth=\dimen112
+\LT@head=\box30
+\LT@firsthead=\box31
+\LT@foot=\box32
+\LT@lastfoot=\box33
+\LT@cols=\count91
+\LT@rows=\count92
+\c@LT@tables=\count93
+\c@LT@chunks=\count94
+\LT@p@ftn=\toks19
+)
+(./Experiment-Planning.aux
+
+LaTeX Warning: Label `BT2' multiply defined.
+
+)
 \openout1 = `Experiment-Planning.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-
-(/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+ (/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count88
-\scratchdimen=\dimen105
-\scratchbox=\box26
-\nofMPsegments=\count89
-\nofMParguments=\count90
-\everyMPshowfont=\toks15
-\MPscratchCnt=\count91
-\MPscratchDim=\dimen106
-\MPnumerator=\count92
-\makeMPintoPDFobject=\count93
-\everyMPtoPDFconversion=\toks16
+\scratchcounter=\count95
+\scratchdimen=\dimen113
+\scratchbox=\box34
+\nofMPsegments=\count96
+\nofMParguments=\count97
+\everyMPshowfont=\toks20
+\MPscratchCnt=\count98
+\MPscratchDim=\dimen114
+\MPnumerator=\count99
+\makeMPintoPDFobject=\count100
+\everyMPtoPDFconversion=\toks21
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -134,101 +184,345 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 19.
+(Font)              <14.4> on input line 28.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 19.
+(Font)              <7> on input line 28.
 <logo.png, id=1, 285.7074pt x 285.7074pt>
 File: logo.png Graphic file (type png)
 <use logo.png>
-Package pdftex.def Info: logo.png  used on input line 22.
-(pdftex.def)             Requested size: 113.81102pt x 113.81009pt.
+Package pdftex.def Info: logo.png  used on input line 31.
+(pdftex.def)             Requested size: 85.35826pt x 85.3554pt.
 
 [1
 
 {/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./logo.
 png>] (./Experiment-Planning.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 5.
+(Font)              <12> on input line 3.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 5.
+(Font)              <8> on input line 3.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 5.
+(Font)              <6> on input line 3.
 )
 \tf@toc=\write3
 \openout3 = `Experiment-Planning.toc'.
 
  [2]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 34.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 43.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 34.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 43.
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--43
+Underfull \hbox (badness 10000) in paragraph at lines 47--51
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 47--51
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 62--66
+Underfull \hbox (badness 10000) in paragraph at lines 71--75
 
  []
 
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 72--77
-
- []
-
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 104--114
+[4] [5]
+Underfull \hbox (badness 10000) in paragraph at lines 105--115
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 104--114
+Underfull \hbox (badness 10000) in paragraph at lines 105--115
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 104--114
+Underfull \hbox (badness 10000) in paragraph at lines 105--115
 
  []
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 120--127
+Underfull \hbox (badness 10000) in paragraph at lines 121--128
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 120--127
+Underfull \hbox (badness 10000) in paragraph at lines 121--128
 
  []
 
 [7] [8]
-Underfull \hbox (badness 10000) in paragraph at lines 159--163
+Underfull \hbox (badness 10000) in paragraph at lines 171--175
 
  []
 
-[9] [10] (./Experiment-Planning.aux) ) 
+[9]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 192.
+
+Underfull \hbox (badness 10000) in paragraph at lines 194--194
+[]|\OT1/cmr/bx/n/10 Req.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 194--194
+[]|\OT1/cmr/bx/n/10 Designation
+ []
+
+
+Underfull \hbox (badness 4927) in paragraph at lines 194--194
+\OT1/cmr/bx/n/10 met / Par-tially
+ []
+
+
+Underfull \hbox (badness 5403) in paragraph at lines 195--195
+[]|\OT1/cmr/m/n/10 Implement Pri-or-ity
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 195--195
+\OT1/cmr/m/n/10 Queue based on
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 195--195
+\OT1/cmr/m/n/10 Single-Linked List
+ []
+
+
+Underfull \hbox (badness 1163) in paragraph at lines 195--195
+[]|\OT1/cmr/m/n/10 Implement a pri-or-
+ []
+
+
+Underfull \hbox (badness 4699) in paragraph at lines 195--195
+\OT1/cmr/m/n/10 C, us-ing the sin-
+ []
+
+
+Underfull \hbox (badness 5403) in paragraph at lines 196--196
+[]|\OT1/cmr/m/n/10 Implement Pri-or-ity
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 196--196
+\OT1/cmr/m/n/10 Queue based on
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 196--196
+\OT1/cmr/m/n/10 Single-Linked List
+ []
+
+
+Underfull \hbox (badness 5403) in paragraph at lines 197--197
+[]|\OT1/cmr/m/n/10 Implement Pri-or-ity
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 197--197
+\OT1/cmr/m/n/10 Queue based on
+ []
+
+
+Underfull \hbox (badness 1163) in paragraph at lines 197--197
+[]|\OT1/cmr/m/n/10 Implement a pri-or-
+ []
+
+
+Underfull \hbox (badness 1796) in paragraph at lines 197--197
+\OT1/cmr/m/n/10 C, us-ing the heap
+ []
+
+
+Underfull \hbox (badness 5403) in paragraph at lines 198--198
+[]|\OT1/cmr/m/n/10 Implement Pri-or-ity
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 198--198
+\OT1/cmr/m/n/10 Queue based on
+ []
+
+
+Underfull \hbox (badness 1147) in paragraph at lines 199--199
+[]|\OT1/cmr/m/n/10 Create unit test-ing
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 200--200
+[]|\OT1/cmr/m/n/10 Implement au-to-
+ []
+
+
+Overfull \hbox (62.39995pt too wide) in paragraph at lines 192--204
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 213--213
+[]|\OT1/cmr/bx/n/10 Req.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 213--213
+[]|\OT1/cmr/bx/n/10 Designation
+ []
+
+
+Underfull \hbox (badness 4927) in paragraph at lines 213--213
+\OT1/cmr/bx/n/10 met / Par-tially
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 214--214
+\OT1/cmr/m/n/10 mal, worst case
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 214--214
+\OT1/cmr/m/n/10 per-for-mances for
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 214--214
+\OT1/cmr/m/n/10 Pri-or-ity Queue
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 214--214
+\OT1/cmr/m/n/10 based on Single-
+ []
+
+
+Underfull \hbox (badness 4492) in paragraph at lines 214--214
+\OT1/cmr/m/n/10 Linked List Event
+ []
+
+
+Underfull \hbox (badness 6125) in paragraph at lines 214--214
+\OT1/cmr/m/n/10 of the best case,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 215--215
+\OT1/cmr/m/n/10 mal, worse case
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 215--215
+\OT1/cmr/m/n/10 per-for-mances for
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 215--215
+\OT1/cmr/m/n/10 Pri-or-ity Queue
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 215--215
+\OT1/cmr/m/n/10 based on Single-
+ []
+
+
+Underfull \hbox (badness 2409) in paragraph at lines 215--215
+\OT1/cmr/m/n/10 Linked List Ready
+ []
+
+
+Underfull \hbox (badness 6125) in paragraph at lines 215--215
+\OT1/cmr/m/n/10 of the best case,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 216--216
+[]|\OT1/cmr/m/n/10 Evaluate nor-mal,
+ []
+
+
+Underfull \hbox (badness 5504) in paragraph at lines 216--216
+\OT1/cmr/m/n/10 worst case per-for-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 216--216
+\OT1/cmr/m/n/10 Queue based on
+ []
+
+
+Underfull \hbox (badness 6125) in paragraph at lines 216--216
+\OT1/cmr/m/n/10 of the best case,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
+[]|\OT1/cmr/m/n/10 Evaluate nor-mal,
+ []
+
+
+Underfull \hbox (badness 5504) in paragraph at lines 217--217
+\OT1/cmr/m/n/10 worst case per-for-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
+\OT1/cmr/m/n/10 Queue based on
+ []
+
+
+Underfull \hbox (badness 6125) in paragraph at lines 217--217
+\OT1/cmr/m/n/10 of the best case,
+ []
+
+
+Underfull \hbox (badness 4096) in paragraph at lines 218--218
+[]|\OT1/cmr/m/n/10 Make Code Avail-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+\OT1/cmr/m/n/10 able on LINUX
+ []
+
+
+Underfull \hbox (badness 6125) in paragraph at lines 218--218
+\OT1/cmr/m/n/10 of the best case,
+ []
+
+
+Overfull \hbox (62.39995pt too wide) in paragraph at lines 210--221
+[][] 
+ []
+
+[10] [11] [12] (./Experiment-Planning.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 1468 strings out of 492649
- 21402 string characters out of 6129621
- 84352 words of memory out of 5000000
- 5353 multiletter control sequences out of 15000+600000
- 9146 words of font info for 33 fonts, out of 8000000 for 9000
+ 1729 strings out of 492649
+ 24580 string characters out of 6129621
+ 97383 words of memory out of 5000000
+ 5599 multiletter control sequences out of 15000+600000
+ 9801 words of font info for 35 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,6n,25p,760b,236s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2018/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2018/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2018/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmtt12.pfb>
-Output written on Experiment-Planning.pdf (10 pages, 156692 bytes).
+ 41i,9n,25p,774b,236s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
+usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
+r/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/
+local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/l
+ocal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/lo
+cal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on Experiment-Planning.pdf (12 pages, 216685 bytes).
 PDF statistics:
- 60 PDF objects out of 1000 (max. 8388607)
- 40 compressed objects within 1 object stream
+ 78 PDF objects out of 1000 (max. 8388607)
+ 53 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
