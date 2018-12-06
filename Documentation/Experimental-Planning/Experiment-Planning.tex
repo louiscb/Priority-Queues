@@ -34,7 +34,7 @@
 \pagebreak
 \tableofcontents
 \newpage
-\section{Impact Goals and Objectives}
+\section{Impact goals and objectives}
 
  The goal of and the motivation behind the experiment is to provide a detailed image of the benefits and shortcomings of two different implementations of the priority queue. This will be considered based on the which of two use-cases they are targeting. The first of the two implementations being evaluated is based on the data structure of a singly linked list, while the second is based on the heap. 
 Each of these data structures will be used to make priority queues for the following use-cases (see Figure 1): 
@@ -43,6 +43,10 @@ Each of these data structures will be used to make priority queues for the follo
    \item Future pending event sets in event-driven simulations: what events this will be developed for is abstract and depends on the developer, as it can be any case where scheduling of events based on priority is the aim. The priority here is represented using timestamp doubles, where the one with the nearest stamp should be dequeued first.
    \item Ready queue for processes and threads in operating systems:
  this refers to the scheduling of processes where the CPU needs to decide for which one it should allocate resources. The priority here is represented using a discrete set of integers where the one with the highest value should be dequeued first. \end{itemize}
+
+\begin{center}
+\includegraphics[width=15cm]{figure-1.png}
+\end{center}
 
 The value behind priority queues and general scheduling concepts for both, or in fact any use case is well described by the following quote from 3 Easy Pieces by Remzi and Andrea Arpaci-Dusseau:
 \\
@@ -96,10 +100,6 @@ We will also need to keep these in consideration when testing and comparing the 
 \end{itemize}
 The experiment over all can be described by \textit{Figure 1}, where we will implement four versions of the priority queue based on the two data structures. We will then test the implementations based on the use case. This will be done by controlling and varying the relevant variables in the experiment when testing for the context. 
 
-\begin{center}
-\includegraphics[width=15cm]{figure-1.png}
-\end{center}
-
 \section{Methodology}
 
  The study will mostly be using quantitative and inductive methods as we will be carrying out experiments and observing the results to draw conclusions. The observed results are those of numerical value (Execution Time). This is also true for the independent variables of the experiment, as the performance is expected to be affected by altering the numeric value of these variables, which brings up the quantitative aspect of the experimentation. Some qualitative input will also be included if we come across it throughout the process. An example could be an input on the ease of implementation of the priority queues, using the two data structures in the different scenarios. Keeping in mind any potential tradeoff it might have on performance. 
@@ -115,7 +115,7 @@ For the experiment testing of the ready queues we will follow the Up/Down model 
 For the experiment testing of the event driven queues we will take a different approach where we will simulate an event driven environment. For each event dequeued from queue, we will enqueue two elements where the priority is a timestamp with an added random value.
 \\
 \\
-In our measurement of performance we will analyse both the average access time and the worst case performance of each implementation. In order to generate accurate measurements, we will run our experiments for an allocated duration of time before taking measurements in order to prevent our data being corrupted by extreme data points [1]. Our data collection will measure each individual enqueue \& dequeue operation in order to “isolate the effects of the underlying hardware”, we will also preallocate the necessary memory for the programs before running the experiments to minimize the underlying effects of the memory management system [1]. 
+In our measurement of performance we will analyse the average access time, the worst case performance and best access time of each implementation. In order to generate accurate measurements, we will run our experiments for an allocated duration of time before taking measurements in order to prevent our data being corrupted by extreme data points [1]. Our data collection will measure each individual enqueue \& dequeue operation in order to “isolate the effects of the underlying hardware”, we will also preallocate the necessary memory for the programs before running the experiments to minimize the underlying effects of the memory management system [1]. 
 
 
 Our code implementing the algorithms will be written entirely in the programming language C. Other more modern languages usually contain overheads which could impact the accuracy of our measurements, such as garbage collection. Elements in the queue will be organised by priority and when multiple elements have the same priority then they will be arranged in a First In First Out (FIFO) order.
@@ -128,7 +128,7 @@ As our algorithms will be implemented in C, our measurements of these algorithms
 It is also important to note that the clock() operation itself takes a certain amount of time to run which will inaccurately be included in our recorded results. To counteract this we will obtain the amount of time clock()  takes to run with no operations and subtract this value from the recorded time of the queue operations. To maintain accuracy, the hardware with which we make our measurements will have to remain consistent, we expand on this in section 5 of this document. 
 \\
 \\
-With this measurement technique we will obtain average and worst case times for our algorithms. We will determine the average time complexity of each implementation by calculating the mean of the time of the recorded operations. We will determine the worst case by taking the highest value of time of each implementation.
+With this measurement technique we will obtain average, best and worst case times for our algorithms. We will determine the average time complexity of each implementation by calculating the mean of the time of the recorded operations. We will determine the worst case by taking the highest value of time of each implementation. We will determine the best case by taking the lowest value of time of each implementation.
 
 In table 1 we have the big O time complexities of our algorithms and will be using these as a point of reference throughout the experiment.    
 
@@ -145,7 +145,7 @@ Singly Linked List - Ready Queues & O(n)         & O(n)       &  &  \\ \cline{1-
 
 \subsection{Random generation}
 
-As mentioned previously, we will be randomly generating priority for the elements that we add to our queues. We will therefore need a method of generating a sequence of pseudorandom numbers in C. According to the Software Engineering Institute of Carnegie Mellon University “The C Standard rand() function makes no guarantees as to the quality of the random sequence produced” [4]. As a result we will use OpenBSD’s arc4random family of funct are cryptosecure and appear with distributions of OpenBSD, Darwin and Linux. According to OpenBSD’s manuals arc4random “provides higher quality data than those described in rand, random and rand48” [5]. 
+As mentioned previously, we will be randomly generating priority for the elements that we add to our queues. We will therefore need a method of generating a sequence of pseudorandom numbers in C. According to the Software Engineering Institute of Carnegie Mellon University “The C Standard rand() function makes no guarantees as to the quality of the random sequence produced” [4]. As a result we will use OpenBSD’s arc4random family of functions which are cryptosecure and appear with distributions of OpenBSD, Darwin and Linux. According to OpenBSD’s manuals arc4random “provides higher quality data than those described in rand, random and rand48” [5]. 
 
 \section{Experimental setup}
 
@@ -176,15 +176,17 @@ The reason for having such a large range of queue sizes is because we predict th
 \\
 \\
 As illustrated in figure 1, we will be testing four separate implementations and we will run each implementation through the range of queue sizes 100 times in order to collect a large enough set of data to draw conclusions from. 
-
-An overview of our program set up is as follows:  four separate C programs for each queue implementation, main C program that calls and times queue implementations, testing bash program.
-
+\\
+\\
+An overview of our program setup is as follows:  four separate C programs for each queue implementation, a single main C program that calls and times queue implementations, an automated data collecting bash program.
+\\
+\\
 In order to validate our experimental setup we will use unit testing to check the individual modules and functions that make up our program. Unit testing will allow us to continually check the performance of our code as we build our experiment. We have chosen cUnit as our unit testing library since it is a lightweight framework that is user friendly [8].
 
 
 \section{When have the goals identified been met? When are the experiments done?}
 
-The goals \& experiments are complete once we have gathered data of an acceptable quality and size with which we can determine conclusions about the performance of the implementation of priority queues. We aim for this experiment to provide enough information for us to propose valid hypotheses on the use of priority queues in different contexts, and compare their use to each other.
+The goals \& experiments are complete once we have gathered data of an acceptable quality and size with which we can draw conclusions about the implementation of priority queues. We aim for this experiment to provide enough information for us to propose valid hypotheses on the use of priority queues in different contexts, and compare their uses to each other.
 
 \section{Requirements table}
 
@@ -217,8 +219,8 @@ The goals \& experiments are complete once we have gathered data of an acceptabl
 \textbf{Req. \#} & \textbf{Type of Requirement} & \textbf{Designation Source} & \textbf{Description of the requirement} & \textbf{Completed / Not met / Partially met} \\ \hline
 7 & Must Have & Evaluate best, normal, worst case performances for Priority Queue based on Single-Linked List Event Driven & Do an analytical and execution evaluation of the best case, worst case and expected case for the single-linked list priority que. For the Event Driven Simulation use case. & NC \\ \hline
 8 & Must Have & Evaluate best, normal, worse case performances for Priority Queue based on Single-Linked List Ready Queue & Do an analytical and execution evaluation of the best case, worst case and expected case for the single-linked list priority que. For the Event Ready Queue use case. & NC \\ \hline
-9 & Must Have & Evaluate normal, worst case performances for Priority Queue based on Heap Event Driven & Do an analytical and execution evaluation of the best case, worst case and expected case for the heap priority queue. For the Event Driven Simulation use case. & NC \\ \hline
-10 & Must Have & Evaluate normal, worst case performances for Priority Queue based on Heap Ready Queue & Do an analytical and execution evaluation of the best case, worst case and expected case for the single-linked list priority que. For the Event Ready Queue use case. & NC \\ \hline
+9 & Must Have & Evaluate best, normal, worst case performances for Priority Queue based on Heap Event Driven & Do an analytical and execution evaluation of the best case, worst case and expected case for the heap priority queue. For the Event Driven Simulation use case. & NC \\ \hline
+10 & Must Have & Evaluate best, normal, worst case performances for Priority Queue based on Heap Ready Queue & Do an analytical and execution evaluation of the best case, worst case and expected case for the single-linked list priority que. For the Event Ready Queue use case. & NC \\ \hline
 11 & Must Have & Make Code Available on LINUX servers & Do an analytical and execution evaluation of the best case, worst case and expected case for the single-linked list priority queue. & NC \\ \hline
 \end{tabular}%
 % }
